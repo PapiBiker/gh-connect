@@ -49,7 +49,7 @@ const Home = () => {
   return (
     <div>
       <Header />
-      <main className="container py-5" style={{maxWidth: 900}}>
+      <main className="container py-5" style={{maxWidth: 1100}}>
         <div className="text-center mb-4">
           <h1 style={{fontWeight: 800, fontSize: "2.5rem", color: "#1a365d"}}>Bienvenido a GH Connect</h1>
           <div className="mb-2" style={{color: "#4a5568"}}>Su portal para la gestión de documentos, indicadores y noticias.</div>
@@ -69,39 +69,43 @@ const Home = () => {
             }}
           />
         </div>
-        <div>
-          <div className="mb-2" style={{fontWeight: 700, color: "#222"}}>Accesos directos</div>
-          <div className="row g-3 mb-4">
-            {shortcuts.map(sc => (
-              <div key={sc.label} className="col-6 col-md-3">
-                <div className="card h-100 border-0 shadow-sm text-center" style={{borderRadius: 12, cursor: "pointer"}}>
+        <div className="row">
+          {/* Noticias a la izquierda */}
+          <div className="col-12 col-md-8 mb-4">
+            <div className="mb-2" style={{fontWeight: 700, color: "#222"}}>Últimas noticias</div>
+            <div className="d-flex flex-column gap-3">
+              {news.map(item => (
+                <div key={item.id} className="card border-0 shadow-sm" style={{borderRadius: 14}}>
+                  <div className="row g-0 align-items-center">
+                    <div className="col-4 col-md-3">
+                      <img src={item.image} alt={item.title} className="img-fluid rounded-start" style={{height: 80, objectFit: "cover"}} />
+                    </div>
+                    <div className="col-8 col-md-9">
+                      <div className="card-body py-3">
+                        <div style={{color: "#2563eb", fontWeight: 600, fontSize: "0.95rem"}}>{item.category}</div>
+                        <div style={{fontWeight: 700, fontSize: "1.1rem"}}>{item.title}</div>
+                        <div style={{color: "#4a5568", fontSize: "0.98rem"}}>{item.summary}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          {/* Accesos directos a la derecha */}
+          <div className="col-12 col-md-4 mb-4">
+            <div className="mb-2" style={{fontWeight: 700, color: "#222"}}>Accesos directos</div>
+            <div className="d-flex flex-column gap-3">
+              {shortcuts.map(sc => (
+                <div key={sc.label} className="card h-100 border-0 shadow-sm text-center" style={{borderRadius: 12, cursor: "pointer"}}>
                   <div className="card-body d-flex flex-column align-items-center justify-content-center py-4">
                     <img src={sc.icon} alt={sc.label} style={{marginBottom: 10}} />
                     <span style={{fontWeight: 600, color: "#1a365d"}}>{sc.label}</span>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="mb-2" style={{fontWeight: 700, color: "#222"}}>Últimas noticias</div>
-        <div className="d-flex flex-column gap-3">
-          {news.map(item => (
-            <div key={item.id} className="card border-0 shadow-sm" style={{borderRadius: 14}}>
-              <div className="row g-0 align-items-center">
-                <div className="col-4 col-md-2">
-                  <img src={item.image} alt={item.title} className="img-fluid rounded-start" style={{height: 80, objectFit: "cover"}} />
-                </div>
-                <div className="col-8 col-md-10">
-                  <div className="card-body py-3">
-                    <div style={{color: "#2563eb", fontWeight: 600, fontSize: "0.95rem"}}>{item.category}</div>
-                    <div style={{fontWeight: 700, fontSize: "1.1rem"}}>{item.title}</div>
-                    <div style={{color: "#4a5568", fontSize: "0.98rem"}}>{item.summary}</div>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       </main>
       <Footer />

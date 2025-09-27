@@ -40,13 +40,16 @@ const Header = () => {
                 <Link className="nav-link" to="/">Inicio</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/almacen">Documentos</Link>
+                <Link className="nav-link" to="/almacen">Gestión Documentaria</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/dashboard">Indicadores</Link>
+                <Link className="nav-link" to="/dashboard">Gestión de Información</Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/organigrama">Organigrama</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/profile">DDPS</Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/blog">Noticias</Link>

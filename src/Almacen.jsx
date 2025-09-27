@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './partials/Header';
 import Footer from './partials/Footer';
+import { Link } from 'react-router-dom';
 
 const sections = [
   {
@@ -64,14 +65,27 @@ const Almacen = () => {
             <h5 className="mb-3" style={{fontWeight: 700, color: "#1a365d"}}>{section.title}</h5>
             <div className="row g-3">
               {section.items.map(item => (
-                <div key={item.name} className="col-12 col-md-4">
-                  <div className="card h-100 border-0 shadow-sm" style={{borderRadius: 12}}>
-                    <div className="card-body d-flex align-items-center">
-                      <img src={item.icon} alt="" style={{marginRight: 12}} />
-                      <span style={{fontWeight: 600, color: "#222"}}>{item.name}</span>
+                item.name === 'Procedimiento de Control de Cambios' ? (
+                  <div key={item.name} className="col-12 col-md-4">
+                    <Link to="/procedimiento/control-de-cambios" style={{ textDecoration: 'none' }}>
+                      <div className="card h-100 border-0 shadow-sm" style={{borderRadius: 12, cursor: 'pointer'}}>
+                        <div className="card-body d-flex align-items-center">
+                          <img src={item.icon} alt="" style={{marginRight: 12}} />
+                          <span style={{fontWeight: 600, color: "#222"}}>{item.name}</span>
+                        </div>
+                      </div>
+                    </Link>
+                  </div>
+                ) : (
+                  <div key={item.name} className="col-12 col-md-4">
+                    <div className="card h-100 border-0 shadow-sm" style={{borderRadius: 12}}>
+                      <div className="card-body d-flex align-items-center">
+                        <img src={item.icon} alt="" style={{marginRight: 12}} />
+                        <span style={{fontWeight: 600, color: "#222"}}>{item.name}</span>
+                      </div>
                     </div>
                   </div>
-                </div>
+                )
               ))}
             </div>
           </div>

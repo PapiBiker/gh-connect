@@ -3,5 +3,5 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/gh-connect/' // 👈 reemplaza por el nombre de tu repo
+  base: '/gh-connect/' // 👈 debe coincidir exactamente con el nombre del repo
 })
